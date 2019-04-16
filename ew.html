@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+</head>
+<body>
+
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<video id="video" playsinline autoplay style="border:1px solid #d3d3d3;"></video>
+<button onClick="f()">Hello</button>
+<button onClick="b()"> Bye </button>
+<script>
+		var canvas = document.querySelector('#myCanvas');
+		var ctx = myCanvas.getContext('2d');
+		function f(){
+			ctx.font = "30px Arial";
+			ctx.fillText("Hello World",10,50);
+			ctx.beginPath();
+			ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+			ctx.stroke();
+		}
+		function b(){
+			ctx.font = "30px Arial";
+			ctx.fillText("Bye World",10,50);
+			ctx.beginPath();
+			ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+			ctx.stroke();
+		}
+		var video = document.querySelector('#video');
+		// Optional frames per second argument.
+		var stream = canvas.captureStream(25);
+		// Set the source of the <video> element to be the stream from the <canvas>.
+		video.srcObject = stream;
+		console.log(stream);
+		
+		
+		</script>
+
+</body>
+</html>
